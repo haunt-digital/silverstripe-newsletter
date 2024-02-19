@@ -94,11 +94,9 @@ class NewsletterEmail extends Email
         }
     }
 
-    public function send()
+    public function send(): void
     {
         $this->extend('onBeforeSend');
-
-        return parent::send($id);
     }
 
     /**
@@ -255,7 +253,7 @@ class NewsletterEmail extends Email
         return $default;
     }
 
-    public function getData()
+    public function getData(): \SilverStripe\View\ViewableData
     {
         return $this->templateData();
     }
