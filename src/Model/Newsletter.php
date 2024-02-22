@@ -220,8 +220,8 @@ class Newsletter extends DataObject implements CMSPreviewable
                 );
 
                 $fields->insertBefore(
-                    LiteralField::create("TemplateExplanationTitle", "<h5>$explanationTitle</h5>"),
-                    "RenderTemplate"
+                    "RenderTemplate",
+                    LiteralField::create("TemplateExplanationTitle", "<h5>$explanationTitle</h5>")
                 );
 
                 if (!$this->ID) {
@@ -242,15 +242,15 @@ class Newsletter extends DataObject implements CMSPreviewable
 					"
                     );
                     $fields->insertBefore(
-                        LiteralField::create("TemplateExplanation1", "<p class='help'>$explanation1</p>"),
-                        "RenderTemplate"
+                        "RenderTemplate",
+                        LiteralField::create("TemplateExplanation1", "<p class='help'>$explanation1</p>")
                     );
                     $fields->insertBefore(
+                        "RenderTemplate",
                         LiteralField::create(
                             "TemplateExplanation2",
                             "<p class='help'>$explanation2<br />$explanation3</p>"
                         ),
-                        "RenderTemplate"
                     );
                 }
 
