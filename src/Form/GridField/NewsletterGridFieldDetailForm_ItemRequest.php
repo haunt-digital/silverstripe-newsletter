@@ -47,26 +47,26 @@ class NewsletterGridFieldDetailForm_ItemRequest extends GridFieldDetailForm_Item
         if ($this->record->Status == "Draft") { //only allow sending when the newsletter is "Draft"
             $sendButton = FormAction::create('doSend', _t('Newsletter.Send', 'Send'));
             $actions->insertBefore(
+                'action_doSave',
                 $sendButton
                     ->addExtraClass('btn action btn-primary font-icon-rocket')
-                    ->setUseButtonTag(true),
-                'action_doSave'
+                    ->setUseButtonTag(true)
             );
 
             $viewPreviewButton = FormAction::create('doViewPreview', _t('Newsletter.ViewPreview', 'View Preview'));
             $actions->insertBefore(
+                'action_doDelete',
                 $viewPreviewButton
                     ->addExtraClass('btn action btn-outline btn-outline-info btn-hide-outline font-icon-eye')
-                    ->setUseButtonTag(true),
-                'action_doDelete'
+                    ->setUseButtonTag(true)
             );
 
             $sendPreviewButton = FormAction::create('doSendPreview', _t('Newsletter.SendPreview', 'Send Test Preview'));
             $actions->insertBefore(
+                'action_doDelete',
                 $sendPreviewButton
                     ->addExtraClass('btn action btn-outline btn-outline-info btn-hide-outline font-icon-rocket')
-                    ->setUseButtonTag(true),
-                'action_doDelete'
+                    ->setUseButtonTag(true)
             );
         }
 
