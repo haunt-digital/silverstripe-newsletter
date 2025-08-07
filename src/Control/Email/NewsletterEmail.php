@@ -236,13 +236,13 @@ class NewsletterEmail extends Email
     protected function templateData()
     {
         $default = [
-            'To' => $this->to,
-            'Cc' => $this->cc,
-            'Bcc' => $this->bcc,
-            'From' => $this->from,
-            'Subject' => $this->subject,
+            'To' => $this->getTo(),
+            'Cc' => $this->getCc(),
+            'Bcc' => $this->getBcc(),
+            'From' => $this->getFrom(),
+            'Subject' => $this->getSubject(),
             'Body' => (is_string($this->body)) ? DBField::create_field('HTMLText', $this->body) : $this->body,
-            'BaseURL' => $this->BaseURL(),
+            'BaseURL' => Director::absoluteBaseURL(),
             'IsEmail' => true,
             'Recipient' => $this->recipient,
             'Member' => $this->recipient, // backwards compatibility
